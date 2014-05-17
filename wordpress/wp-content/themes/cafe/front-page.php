@@ -1,25 +1,15 @@
 <?php get_header(); ?>
+<div style="background-color: #dfe0d5; height: 450px;">
+<?php           
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-    <?php // Get the feature banner image
-        if (has_post_thumbnail()) {
-            $image_id = get_post_thumbnail_id();
-            $image_url = wp_get_attachment_image_src($image_id,'banner', true);
-    ?>
-    <div class="banner">
-        <span class="bannerimage" style="background-image:url('<?php echo $image_url[0]; ?>'); display: block;">
-            <span class="inner"></span>
-        </span>
-    </div>
-    <?php } ?>
-
-    <div class="container">
-        <section class="span-12">
-            <?php the_title( '<h1>', '</h1>' ); ?>
-            <?php the_content(); ?>
-        </section>
-    </div>
-
-<?php endwhile; endif; ?>
+        $feeds = array(
+                array('label'=>'recipes','link'=>'http://www.cabotcheese.coop/pages/recipes/rss-fgg.php?rss=atom20','filter'=>'recipes')
+                //array('label'=>'instagram','link'=>'http://ink361.com/feed/user/cabotcheese','filter'=>'social')
+        );
+    //$results = json_cached_results($feeds);
+    //show_feed_results($results);
+?>
+        
+  </div>
+ 
 <?php get_footer(); ?>

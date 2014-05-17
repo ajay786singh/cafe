@@ -5,22 +5,9 @@ $susy: (columns: 6, gutters: 1, gutter-position: inside);
 $desktop: layout(12);
 
 .container {
+    @include container(80em);
     //border: 1px solid red;
     position: relative;
-    @include container(80em);
-}
-
-header {
-    margin-bottom: 55px;
-    position: relative;
-    z-index: 2000;
-}
-
-.wrapper {
-    //margin-top: 10px;
-    //background: rgba(0, 31, 63, 0.7);
-    //position: relative;
-    //z-index: 10;
 }
 
 .span-2 {
@@ -144,21 +131,4 @@ header {
     background-size: cover;
     min-height: 312px;
     position: relative;
-}
-
-footer {
-    background-image: url(images/bg-footer.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 380px;
-    position: relative;
-    .footer-top {
-        color: $white;
-        padding-top: 80px;
-    }
-}
-
-.topbar {
-    background-color: #363636;
-    height: 50px;
 }

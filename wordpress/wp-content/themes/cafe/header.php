@@ -25,15 +25,6 @@
     <?php wp_head(); ?>
     
     <script type="text/javascript">
-        /*Typekit
-        (function() {
-        var config = {
-        kitId: 'set7rcj',
-        scriptTimeout: 3000
-        };
-        var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
-        })();
-
         /*Google Analytics
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-1322597-2']);
@@ -49,48 +40,10 @@
 
 </head>
 
-<body <?php body_class();?> data-page="index">
-
-<!-- Pushy Menu -->
-<nav class="pushy pushy-right">
-    <?php wp_nav_menu();?>        
-    <div class="additional-links">
-        <ul>
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-        </ul>  
-    </div>
-    <span class="social-icons">
-        <!--
-        <a href="#" target="_blank"><img alt="youtube icon" src="<?php bloginfo( 'template_url' ) ?>/images/icon-youtube.png"></a>
-        <a href="#" target="_blank"><img alt="pintrest icon" src="<?php bloginfo( 'template_url' ) ?>/images/icon-pintrest.png"></a>
-        <a href="#" target="_blank"><img alt="instagram icon" src="<?php bloginfo( 'template_url' ) ?>/images/icon-instagram.png"></a>
-        -->
-    </span>  
-</nav>
-
-<!-- Site Overlay for Pushy offcanvas to work -->
-<div class="site-overlay"></div>
+<body>
 
 
-<!--Wrapper Starts for Pushy to work-->
-<div class="wrapper">
-    <header>
-        <div class="topbar">
-           <div class="container" >
-                <div class="span-12">
-                    <a href="<?php bloginfo( 'url' ) ?>"><span class="logo">Logo</span></a><span class="sublogo">Tagline</span>
-                </div>
-                <div class="menu-btn">Menu &#9776;</div>
-            </div>
-            
-            <div id="search">
-                <?php get_search_form() ?>
-            </div>
-        </div>
-        <div class="banner">
-            <h3>Banner</h3> 
-            <h4>Tagline</h4>
-        </div>
+
+    <header style="background-color: #232323; height: 400px;">
+     <!--slider-->
     </header>
