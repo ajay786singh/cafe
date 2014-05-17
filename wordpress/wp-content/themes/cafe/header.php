@@ -41,9 +41,6 @@
 </head>
 
 <body>
-
-
-
     <header style="background-color: #232323; height: 400px;">
      <!--slider-->
     </header>

@@ -23,13 +23,7 @@ require_once('includes/functions/register-menu.php');
 require_once('includes/functions/remove-header-meta.php');
 require_once('includes/functions/remove-menu-id.php');
 require_once('includes/functions/remove-wp-version.php');
+require_once('includes/functions/add-rss-feeds.php');
 
-//Load shortcodes
-//require_once('includes/shortcodes/accordion.php');
-//require_once('includes/shortcodes/button.php');
-//require_once('includes/shortcodes/content.php');
-//require_once('includes/shortcodes/content-sidebar.php');
-//require_once('includes/shortcodes/readmore.php');
-//require_once('includes/shortcodes/tab.php');
 
 ?>
