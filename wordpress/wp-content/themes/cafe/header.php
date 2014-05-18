@@ -41,6 +41,13 @@
 </head>
 
 <body>
-    <header style="background-color: #232323; height: 400px;">
-     <!--slider-->
+    <header>
+        <div id="owl-demo" class="owl-carousel" style="background-color: #000;">
+            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-01.jpg" alt="Lazy Owl Image"></div>
+            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-02.jpg" alt="Lazy Owl Image"></div>
+            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-03.jpg" alt="Lazy Owl Image"></div>
+            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-04.jpg" alt="Lazy Owl Image"></div>
+            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-05.jpg" alt="Lazy Owl Image"></div>
+            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-06.jpg" alt="Lazy Owl Image"></div>
+        </div>
     </header>

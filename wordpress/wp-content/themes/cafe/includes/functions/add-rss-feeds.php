@@ -227,7 +227,7 @@ function show_feed_results( $results = NULL ) {
 								}
 							?>
                     <a class="element-img-container" href="<?php echo $link;?>" <?php if($label!='blog') { ?> target="_blank" <?php } ?>>                    
-	                    <div class="element-img" style="background-image:url('<?php echo $feed_img;?>');"></div>
+	                    <div class="element-img" style="background-image:url('<?php echo $feed_img;?>'); height: 200px; width: 200px;"></div>
                     </a>   
 					<div class="element-title">
 					<p><?php echo $label;?></p>			
