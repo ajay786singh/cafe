@@ -8,16 +8,18 @@
 <script>
 	jQuery(document).ready(function() {
 		jQuery("#owl-demo").owlCarousel({
-			items : 2,
+			items : 1,
             lazyLoad : true,
             navigation : false,
-            itemsDesktop : [1199,2],
+            itemsDesktop : [1199,1],
 		    itemsDesktopSmall : [980,1],
 		    itemsTablet: [980,1],
 		    itemsTabletSmall: false,
 		    itemsMobile : [479,1],
 		    singleItem : false,
-		    itemsScaleUp : false
+		    itemsScaleUp : false,
+		    pagination: false,
+		    navigation: true
             }); 
         });
 	jQuery(document).ready(function() {
@@ -25,13 +27,15 @@
 			items : 5,
             lazyLoad : true,
             navigation : false,
-            itemsDesktop : [1199,3],
+            itemsDesktop : [1499,3],
 		    itemsDesktopSmall : [980,1],
 		    itemsTablet: [980,2],
 		    itemsTabletSmall: false,
-		    itemsMobile : [479,1],
+		    itemsMobile : [630,1],
 		    singleItem : false,
-		    itemsScaleUp : false
+		    itemsScaleUp : false,
+		    pagination: false,
+		    navigation: true
             }); 
         });
 </script>
