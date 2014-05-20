@@ -32,7 +32,7 @@ function get_google_plus_feed(){
 			$img=$item->object->attachments[0]->image->url;
 		}
 		$date=date("d-m-Y H:i:s", strtotime($item->published));
-		$results[]=array('title'=>$item->title,'link'=>$item->url,'img'=>$img,'date'=>$date,'label'=>'google plus','filter'=>'social');
+		$results[]=array('title'=>$item->title, 'author'=>$item->author, 'link'=>$item->url,'img'=>$img,'date'=>$date,'label'=>'google plus','filter'=>'social');
 	}
 	return $results;
 }
@@ -80,7 +80,7 @@ function getFeed($feed_url) {
     foreach($x->channel->item as $entry) {
 		if($i<=20) {
 			$newDate = date("d-m-Y H:i:s", strtotime($entry->pubDate));
-			$results[] = array('title'=> (string) $entry->title,'link'=> (string) $entry->link,'img'=> (string) $entry->feedimg,'date'=>$newDate,'label'=>'virtual farm tour','filter'=>'virtual_farm_tour','city'=> (string) $entry->feedcity,'state'=> (string) $entry->feedstate);
+			$results[] = array('title'=> (string) $entry->title, 'author'=> (string) $entry->author, 'link'=> (string) $entry->link,'img'=> (string) $entry->feedimg,'date'=>$newDate,'label'=>'virtual farm tour','filter'=>'virtual_farm_tour','city'=> (string) $entry->feedcity,'state'=> (string) $entry->feedstate);
 			$i++;
 		}
 	}
@@ -144,10 +144,10 @@ function get_feed_results($feeds) {
 					$img=$feed_img[0];
 					if($feeds[$i]['label']=='recipes') {
 							if($img && preg_match('/^(http|https):\/\/([a-z0-9-]\.+)*/i', $img)==true) {
-								$results[] = array('title'=>$title,'link'=>$entry->link,'img'=>$img,'date'=>$newDate,'label'=>$feeds[$i]['label'],'filter'=>$feeds[$i]['filter']);
+								$results[] = array('title'=>$title,'link'=>$entry->link,'img'=>$img,'date'=>$newDate,'author'=>$author,'label'=>$feeds[$i]['label'],'filter'=>$feeds[$i]['filter']);
 							}
 					}else {
-						$results[] = array('title'=>$title,'link'=>$entry->link,'img'=>$img,'date'=>$newDate,'label'=>$feeds[$i]['label'],'filter'=>$feeds[$i]['filter']);
+						$results[] = array('title'=>$title,'link'=>$entry->link,'img'=>$img,'date'=>$newDate,'author'=>$author, 'label'=>$feeds[$i]['label'],'filter'=>$feeds[$i]['filter']);
 					}
 				}
 			}
@@ -177,10 +177,14 @@ function show_feed_results( $results = NULL ) {
 				$id=$result->row_id;
 				$link= $result->link;
 				$title=$result->title;
+				$author=$result->author;
 				$feed_img=$result->img;
 				$label=$result->label;
 				$filter=$result->filter;
+				$newDate=$result->date;
+				
 				?>
+
 				<div style="background-color: #f7f6ed;" class="element-item item <?php echo $label;?> <?php echo $filter;?>" data-category="transition" id="<?php echo "item_".$id;?>">
 						<?php 
 								if($feed_img==''){
@@ -197,7 +201,7 @@ function show_feed_results( $results = NULL ) {
 							?>
 					<p class="none"><?php echo $label;?></p>
                     <div class="element-title" style="height: 100px; margin: 0 12px 18px 12px;">
-                    	<p><b>Cafe Larue &#038; Fils //</b></p>
+                    	<p><b>Caf&eacute; Larue &#038; Fils //</b> Posted <?php echo date("M d, Y", strtotime($newDate));?></p>
 					
                     <p class="title">
                     	<a href="<?php echo $link;?>" <?php if($label!='blog') { ?> target="_blank" <?php } ?>>
@@ -211,12 +215,14 @@ function show_feed_results( $results = NULL ) {
 						?>
                         </a>
                     </p>
-					</div>                  
+					</div>                
 	                <!--<div class="element-img" style="background-image:url('<?php echo $feed_img;?>');"></div>-->
 	                <div style="height: 300px;">
-	                <img class="element-img" src="<?php echo $feed_img;?>">
-	            </div>
+		                <img class="element-img" src="<?php echo $feed_img;?>">
+	            	</div>
+	      
 				</div>
+
 				<?php
 			}
 }
@@ -227,12 +233,12 @@ function json_cached_results($urls,$cache_file = NULL, $expires = NULL) {
     global $request_type, $purge_cache, $limit_reached, $request_limit;
 	ob_start();
     if( !$cache_file ) $cache_file = TEMPLATEPATH. '/rss-feed.json';
-    if( !$expires) $expires = time() - 60 * 15;
+    if( !$expires) $expires = time() - 60 * 10;
 	
     if( !file_exists($cache_file) ) die("Cache file is missing: $cache_file");
 
 
-	if (file_exists($cache_file) && (filemtime($cache_file) > (time() - 60 * 15 )) && file_get_contents($cache_file)  != '') {
+	if (file_exists($cache_file) && (filemtime($cache_file) > (time() - 60 * 10 )) && file_get_contents($cache_file)  != '') {
 		// Cache file is less than fifteen minutes old. 
 		// Don't bother refreshing, just use the file as-is.
 		$json_results = file_get_contents($cache_file);

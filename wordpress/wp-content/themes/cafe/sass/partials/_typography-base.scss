@@ -69,13 +69,13 @@ h6 {
 }
 
 p, ul, ol {
-    @include adjust-font-size-to(16px);
+    @include adjust-font-size-to(14px);
     font-family: $san-serif;
-    margin: 0 auto rhythm(1, 16px);
+    margin: 0 auto rhythm(1, 20px);
     @include susy-breakpoint(55em, $desktop) {
-        @include adjust-font-size-to(16px);
-        line-height: 1.5em;
-        margin: 0 auto rhythm(1, 16px);
+        @include adjust-font-size-to(14px);
+        line-height: 1.4em;
+        margin: 0 auto rhythm(1, 20px);
     }
 }
 
