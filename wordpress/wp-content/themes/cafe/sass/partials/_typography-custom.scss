@@ -1,1 +1,9 @@
 //Use this partial for classes and project specific custom typography
+
+a {
+    color: #000;
+    text-decoration: none;
+    &:hover {
+        border-bottom: 1px solid #000;
+    }
+}

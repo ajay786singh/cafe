@@ -38,9 +38,12 @@ Version: 1.0
 .Flexible-container {
     height: 0;
     overflow: hidden;
-    padding-bottom: 22%;
+    padding-bottom: 60%;
     padding-top: 0px;
     position: relative;
+    @include susy-breakpoint(55em, $desktop) {
+        padding-bottom: 22%;
+    }
 }
 
 .Flexible-container iframe,
@@ -51,4 +54,16 @@ Version: 1.0
     position: absolute;
     top: 0;
     width: 100%;
+}
+
+.element-img {
+    height: 310px;
+}
+
+.none {
+    text-indent: 99999px;
+}
+
+.facebook {
+    background: url("images/logo-facebook.png") no-repeat left top;
 }

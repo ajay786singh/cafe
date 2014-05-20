@@ -20,6 +20,20 @@
 		    itemsScaleUp : false
             }); 
         });
+	jQuery(document).ready(function() {
+		jQuery("#owl-demo2").owlCarousel({
+			items : 5,
+            lazyLoad : true,
+            navigation : false,
+            itemsDesktop : [1199,3],
+		    itemsDesktopSmall : [980,1],
+		    itemsTablet: [980,2],
+		    itemsTabletSmall: false,
+		    itemsMobile : [479,1],
+		    singleItem : false,
+		    itemsScaleUp : false
+            }); 
+        });
 </script>
 </body>
 </html>

@@ -91,13 +91,14 @@ function getFeed($feed_url) {
 * Feed 
 */
 
+
 function get_feed_results($feeds) {
 		$results='';
 		for($i=0;$i<count($feeds);$i++) {
 			$params = array(
 			  'q' => $feeds[$i]['link'],
 			  'v' => '1.0', // API version
-			  'num' => 50, // maximum entries (limited)
+			  'num' => 10, // maximum entries (limited)
 			  'output' => 'JSON', // mixed content: JSON for feed, XML for full entries (json|xml|json_xml)
 			  'scoring' => 'h', // include historical entries
 			);
@@ -151,39 +152,7 @@ function get_feed_results($feeds) {
 				}
 			}
 		}
-			// Code to get blog posts
-//			$blog_posts=new WP_Query('post_type=post&showposts=-1');
-//			$blogs='';
-//			if($blog_posts->have_posts()):while($blog_posts->have_posts()):$blog_posts->the_post();
-//			$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-//			
-//			$blogs[]=array('title'=>get_the_title(),'link'=>get_permalink(),'img'=>$feat_image,'date'=>get_the_date('d-m-Y H:i:s'),'label'=>'blog','filter'=>'blog');
-//			endwhile; endif; wp_reset_query();
-//			if($blogs !='') {
-//					if($results !='') {
-//						$results=array_merge($blogs,$results);
-//					}else {
-//						$results=$blogs;	
-//					}
-//			}
-			// Get Google Plus feeds
-			//$google_feeds=get_google_plus_feed();
-//			if($google_feeds !='') {
-//				if($results !='') {
-//					$results=array_merge($google_feeds,$results);
-//				}else {
-//					$results=$google_feeds;	
-//				}
-//			}
-					
-		//$vtf_feeds=getFeed('http://virtualfarmtour.cabotcheese.coop/cabot/feed/?post_type=farm');
-//			if($vtf_feeds!=''){
-//				if($results !='') {
-//					$results=array_merge($vtf_feeds,$results);
-//				}else {
-//					$results=$vtf_feeds;	
-//				}	
-//			}
+
 				
 		if($results) {
 			usort($results, "sort_by_date");
@@ -212,7 +181,7 @@ function show_feed_results( $results = NULL ) {
 				$label=$result->label;
 				$filter=$result->filter;
 				?>
-				<div class="element-item item transition <?php echo $label;?> <?php echo $filter;?>" data-category="transition" id="<?php echo "item_".$id;?>">
+				<div style="background-color: #f7f6ed;" class="element-item item <?php echo $label;?> <?php echo $filter;?>" data-category="transition" id="<?php echo "item_".$id;?>">
 						<?php 
 								if($feed_img==''){
 									$feed_img="http://www.cabotcheese.coop/pages/recipes/images/Recipe_NoImage2.jpg";
@@ -226,30 +195,24 @@ function show_feed_results( $results = NULL ) {
 									}
 								}
 							?>
-                    <a class="element-img-container" href="<?php echo $link;?>" <?php if($label!='blog') { ?> target="_blank" <?php } ?>>                    
-	                    <div class="element-img" style="background-image:url('<?php echo $feed_img;?>'); height: 200px; width: 200px;"></div>
-                    </a>   
-					<div class="element-title">
-					<p><?php echo $label;?></p>			
-					<?php
-						if ($filter =='virtual_farm_tour' && $result->city !='') {
-					?>	
-					<p style="margin-bottom:0.5em;"><?php echo $result->city.", ".$result->state;?></p>			
-					<?php } ?>
+					<p class="none"><?php echo $label;?></p>
+                    <div class="element-title" style="height: 100px; margin: 0 12px 18px 12px;">
+                    	<p><b>Cafe Larue &#038; Fils //</b></p>
+					
                     <p class="title">
                     	<a href="<?php echo $link;?>" <?php if($label!='blog') { ?> target="_blank" <?php } ?>>
 						<?php 					
 							if (strlen($title) > 50 && $label !='twitter') {
-								echo substr($title, 0, 50) . '...'; 
+								echo substr($title, 0, 200) . '...'; 
 							
 							} else {
 								echo $title;
 							}
 						?>
-                        	</a>
-                        </p>
-					</div>
-					
+                        </a>
+                    </p>
+					</div>                  
+	                <div class="element-img" style="background-image:url('<?php echo $feed_img;?>');"></div>
 				</div>
 				<?php
 			}
