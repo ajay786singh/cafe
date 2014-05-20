@@ -212,7 +212,10 @@ function show_feed_results( $results = NULL ) {
                         </a>
                     </p>
 					</div>                  
-	                <div class="element-img" style="background-image:url('<?php echo $feed_img;?>');"></div>
+	                <!--<div class="element-img" style="background-image:url('<?php echo $feed_img;?>');"></div>-->
+	                <div style="height: 300px;">
+	                <img class="element-img" src="<?php echo $feed_img;?>">
+	            </div>
 				</div>
 				<?php
 			}
