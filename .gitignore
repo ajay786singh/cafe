@@ -3,7 +3,7 @@
 .sass-cache/
 robots.txt
 node_modules/
-
+rss-feed.json
 # Wordpress specific
 
 wp-config.php
