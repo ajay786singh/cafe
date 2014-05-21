@@ -7,15 +7,14 @@ function is_url_exist($url){
 
     if($code == 200){
        $status = true;
-    }else{
+    } else {
       $status = false;
     }
     curl_close($ch);
-   return $status;
+	return $status;
 }
 
 function get_google_plus_feed(){
-	
 	$id = '103003693720550915919';
 	$key = 'AIzaSyCVwzWMT9LbcUx0kJP3ZIXHM9vZovgGCZE';
 	$feed = json_decode(file_get_contents('https://www.googleapis.com/plus/v1/people/'.$id.'/activities/public?key='.$key));
@@ -24,11 +23,11 @@ function get_google_plus_feed(){
 	foreach ($feed->items as $item) {
 		if($item->object->attachments[0]->objectType=='album') {			
 			$img=$item->object->attachments[0]->thumbnails[0]->image->url;
-		}else if($item->object->attachments[0]->objectType=='photo') {
+		} else if($item->object->attachments[0]->objectType=='photo') {
 			$img=$item->object->attachments[0]->image->url;
-		}else if($item->object->attachments[0]->objectType=='article') {
+		} else if($item->object->attachments[0]->objectType=='article') {
 			$img=$item->object->attachments[0]->fullImage->url;
-		}else if($item->object->attachments[0]->objectType=='video') {
+		} else if($item->object->attachments[0]->objectType=='video') {
 			$img=$item->object->attachments[0]->image->url;
 		}
 		$date=date("d-m-Y H:i:s", strtotime($item->published));
@@ -36,14 +35,14 @@ function get_google_plus_feed(){
 	}
 	return $results;
 }
+
 function sort_by_date($a, $b) {
     if ($a['date'] == $b['date']) return 0;
     return (strtotime($a['date']) < strtotime($b['date'])) ? 1 : -1;
 }
 
-function youtube_thumbnail_url($url)
-{
-	if(!filter_var($url, FILTER_VALIDATE_URL)){
+function youtube_thumbnail_url($url) {
+	if(!filter_var($url, FILTER_VALIDATE_URL)) {
 		// URL is Not valid
 		return false;
 	}
@@ -64,15 +63,11 @@ function youtube_thumbnail_url($url)
 		$v= str_replace('/','', parse_url($url, PHP_URL_PATH));
 		return (empty($v)) ? false : "http://img.youtube.com/vi/$v/0.jpg" ;
 	}
-	 
 	else
-	 
 	return false;
 }
 
-
 function getFeed($feed_url) {
-	     
 	$content = file_get_contents($feed_url);
 	$x = new SimpleXmlElement($content);
 	$results="";
@@ -86,11 +81,6 @@ function getFeed($feed_url) {
 	}
 	return $results;
 }
-
-/*
-* Feed 
-*/
-
 
 function get_feed_results($feeds) {
 		$results='';

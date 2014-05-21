@@ -35,17 +35,6 @@ Version: 1.0
 
 /* Flexible iFrame */
 
-.Flexible-container {
-    height: 0;
-    overflow: hidden;
-    padding-bottom: 65%;
-    padding-top: 0px;
-    position: relative;
-    @include susy-breakpoint(55em, $desktop) {
-        padding-bottom: 22%;
-    }
-}
-
 .Flexible-container iframe,
 .Flexible-container object,
 .Flexible-container embed {
@@ -54,6 +43,19 @@ Version: 1.0
     position: absolute;
     top: 0;
     width: 100%;
+}
+
+#map {
+
+    height: 300px;
+    width: 100%;
+    @include susy-breakpoint(55em, $desktop) {
+        height: 300px;
+        width: 100%;
+    }
+    & img {
+        max-width: none;
+    }
 }
 
 .element-img {
@@ -69,13 +71,12 @@ Version: 1.0
 #owl-demo .owl-prev {
     background: url("images/prev.png") no-repeat;
     height: 57px;
-    left: -1%;
+    left: 0;
     position: absolute;
     text-indent: -99999px;
     top: 30%;
     width: 72px;
     @include susy-breakpoint(55em, $desktop) {
-        left: 1%;
         top: 44%;
     }
 }
@@ -84,12 +85,11 @@ Version: 1.0
     background: url("images/next.png") no-repeat;
     height: 57px;
     position: absolute;
-    right: -5%;
+    right: 0;
     text-indent: -99999px;
     top: 30%;
     width: 72px;
     @include susy-breakpoint(55em, $desktop) {
-        right: 1%;
         top: 44%;
     }
 }
@@ -98,12 +98,11 @@ Version: 1.0
     background: url("images/next.png") no-repeat;
     height: 57px;
     position: absolute;
-    right: -4%;
+    right: 0;
     text-indent: -99999px;
     top: 57%;
     width: 72px;
     @include susy-breakpoint(55em, $desktop) {
-        right: 0;
         top: 57%;
     }
 }
@@ -111,13 +110,12 @@ Version: 1.0
 #owl-demo2 .owl-prev {
     background: url("images/prev.png") no-repeat;
     height: 57px;
-    left: -1%;
+    left: 0;
     position: absolute;
     text-indent: -99999px;
     top: 57%;
     width: 72px;
     @include susy-breakpoint(55em, $desktop) {
-        left: 1%;
         top: 57%;
     }
 }
