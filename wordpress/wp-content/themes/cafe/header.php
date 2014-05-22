@@ -64,72 +64,78 @@
                             stylers:[ 
                                 { visibility:"off"}
                                 ]
-                            },
-                            {
+                            },{
+                            featureType:"landscape",
+                            stylers:[
+                                { color:"#f0ede5" }
+                                ]
+                            },{
                             featureType:"poi",
                             stylers:[
                                 { visibility:"on" }
                                 ]
-                            },
-                            { 
+                            },{
+                            featureType:"poi.business",
+                            stylers:[
+                                { visibility:"off" }
+                                ]
+                            },{
+                            featureType:"poi.park",
+                            stylers:[
+                                { color:"#74c7a3" }
+                                ]
+                            },{ 
                             featureType:"road",
                             elementType:"labels",
                             stylers:[
-                                { visibility:"off" }
+                                { visibility:"on" }
                                 ]
-                            },
-                            {
-                            featureType:"water",
-                            stylers:[
-                                { visibility:"simplified"}
-                                ]
-                            },
-                            {
-                            featureType:"transit",
-                            stylers:[
-                                { visibility:"off" }
-                                ]
-                            },
-                            {
-                            featureType:"landscape",
-                            stylers:[
-                                { visibility:"simplified" }
-                                ]
-                            },
-                            {
+                            },{
                             featureType:"road.highway",
                             stylers:[
                                 { visibility:"off" }
                                 ]
-                            },
-                            {
-                            featureType:"road.local",
-                            stylers:[
-                                { visibility:"on" },
-                                { color:"#6fcac7" }
-                                ]
-                            },
-                            {
+                            },{
                             featureType:"road.highway",
                             elementType:"geometry",
                             stylers:[
                                 { visibility:"on" }
                                 ]
-                            },
-                            {
+                            },{
+                            featureType:"road.local",
+                            stylers:[
+                                { visibility:"on" },
+                                { color:"#57544b" }
+                                ]
+                            },{
+                            featureType:"road.local",
+                            elementType:"labels.text.fill",
+                            stylers:[
+                                { color:"#ffffff" }
+                                ]
+                            },{
+                            featureType:"road.local",
+                            elementType:"labels.text.stroke",
+                            stylers:[
+                                { visibility:"on" },
+                                ]
+                            },{
                             featureType:"water",
                             stylers:[
-                                { color:"#6fcac7" },
-                                { lightness:52 }
+                                { visibility:"simplified"},
+                                { color:"#6fcac7" } 
                                 ]
-                            },
-                            {
+                            },{
+                            featureType:"landscape",
                             stylers:[
-                                { saturation:-17 },
-                                { gamma:0.36 }
+                                { visibility:"simplified" }
                                 ]
-                            },
-                            {
+                            },{
+                            featureType:"transit",
+                            stylers:[
+                                { visibility:"on" }
+                                ]
+                            },{
                             featureType:"transit.line",
                             elementType:"geometry",
                             stylers:[
