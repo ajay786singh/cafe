@@ -42,7 +42,7 @@
     When using Google Maps on your own site you MUST signup for your own API key at:
     https://developers.google.com/maps/documentation/javascript/tutorial#api_key
     -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIiiFbPAKfTIqOC8K4sKqf1DB39Uh1hZc&sensor=false"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14&(key=AIzaSyBIiiFbPAKfTIqOC8K4sKqf1DB39Uh1hZc)&sensor=false"></script>
     <script type="text/javascript">
         // When the window has finished loading create our google map below
         google.maps.event.addDomListener(window, 'resize', init);
@@ -53,7 +53,8 @@
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
             var mapOptions = {
                 zoom: 16,
-                center: new google.maps.LatLng(45.537776, -73.618085,17),
+                center: new google.maps.LatLng(45.538776, -73.618085,17),
+
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
 
                 // How you would like to style the map. 
@@ -84,7 +85,13 @@
                             stylers:[
                                 { color:"#74c7a3" }
                                 ]
-                            },{ 
+                            },{
+                            featureType:"poi.park",
+                            elementType:"labels.text.fill",
+                            stylers:[
+                                { color:"#ffffff" }
+                                ]
+                            },{
                             featureType:"road",
                             elementType:"labels",
                             stylers:[
@@ -151,6 +158,40 @@
 
             // Create the Google Map using out element and options defined above
             var map = new google.maps.Map(mapElement, mapOptions);
+
+            // Define Marker properties
+            var image = new google.maps.MarkerImage('<?php bloginfo(template_url)?>/images/map-pointer.png',
+                // This marker is 129 pixels wide by 42 pixels tall.
+                new google.maps.Size(57, 73),
+                // The origin for this image is 0,0.
+                new google.maps.Point(0,0),
+                // The anchor for this image is the base of the flagpole at 18,42.
+                new google.maps.Point(25, 73)
+            );
+
+            // Add Marker
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(45.537776, -73.618085,17),
+                map: map,
+                icon: image // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
+
+            });
+
+            // Create our info window content   
+            var infoWindowContent = '<div class="info_content">' +
+                '<h3>Cafe Larue & Fils</h3>' +
+                '<p>244 de Castelnau Est.<br>272-8087</p>' +
+            '</div>';
+
+            // Initialise the inforWindow
+            var infoWindow = new google.maps.InfoWindow({
+                content: infoWindowContent
+            });
+
+            // Display our info window when the marker is clicked
+            google.maps.event.addListener(marker, 'click', function() {
+                infoWindow.open(map, marker);
+            });
         }
     </script>
 
