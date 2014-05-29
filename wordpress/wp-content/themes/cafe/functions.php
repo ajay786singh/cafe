@@ -1,10 +1,10 @@
 <?php
 
 //Include cuztom helper files https://github.com/Gizburdt/Wordpress-Cuztom-Helper
-//include('includes/wp-cuztom-helper/cuztom.php');
+include('includes/wp-cuztom-helper/cuztom.php');
 
 //Include post custom posts type. Dependent on /wp-cuztom-helper classes.
-//include('includes/wp-cuztom-posts/custom-post-name.php');
+include('includes/wp-cuztom-posts/custom-post-slider.php');
 
 //Load custom functions
 require_once('includes/functions/add-classes-to-body.php');
