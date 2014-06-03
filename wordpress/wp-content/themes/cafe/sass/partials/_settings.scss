@@ -23,7 +23,7 @@ Version: 1.0
 // Vendor
 @import "vendor/owl.carousel";
 
-@import "vendor/owl.theme";
+@import "vendor/owl.theme.default";
 
 // Partials
 @import "core";
@@ -68,7 +68,7 @@ Version: 1.0
     text-indent: -99999px;
 }
 
-#owl-demo .owl-prev {
+#slider1 .owl-prev {
     background: url("images/prev.png") no-repeat;
     height: 57px;
     left: 0;
@@ -81,7 +81,7 @@ Version: 1.0
     }
 }
 
-#owl-demo .owl-next {
+#slider1 .owl-next {
     background: url("images/next.png") no-repeat;
     height: 57px;
     position: absolute;
@@ -94,7 +94,7 @@ Version: 1.0
     }
 }
 
-#owl-demo2 .owl-next {
+#slider2 .owl-next {
     background: url("images/next.png") no-repeat;
     height: 57px;
     position: absolute;
@@ -107,7 +107,7 @@ Version: 1.0
     }
 }
 
-#owl-demo2 .owl-prev {
+#slider2 .owl-prev {
     background: url("images/prev.png") no-repeat;
     height: 57px;
     left: 0;

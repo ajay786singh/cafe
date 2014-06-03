@@ -208,7 +208,8 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <header>
-    <div id="owl-demo" class="owl-carousel" style="background-color: #000;">
+    <!--<div id="owl-demo" class="owl-carousel" style="background-color: #000;">-->
+    <div id="slider1" class="owl-carousel">
 
     <?php
         $args = array(
@@ -228,13 +229,13 @@
         $image_src      = wp_get_attachment_image_src($attachment_id, slider);
     ?>
 
-        <div class="item">
+        <!--<div class="item">-->
             <?php if($attachment_id): ?>
-                <a href="<?php echo $image_link; ?>"><img class="lazyOwl" data-src="<?php echo $image_src[0]; ?>" alt="Lazy Owl Image"></a>
+                <a href="<?php echo $image_link; ?>"><img src="<?php echo $image_src[0]; ?>" alt="<?php the_title(); ?>"></a>
             <?php else: ?>
                 <a class="owl-video" href="<?php echo $video_url; ?>"></a>
             <?php endif; ?>
-        </div>
+        <!--</div>-->
 
     <?php endforeach; wp_reset_postdata();?>
 

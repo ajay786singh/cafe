@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div id="owl-demo2" class="owl-carousel" style="background-color: #f7f6ed">
+<div id="slider2" class="owl-carousel" style="background-color: #f7f6ed">
 
 <?php           
 	$feeds = array(
