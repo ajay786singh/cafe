@@ -207,13 +207,36 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-    <header>
-        <div id="owl-demo" class="owl-carousel" style="background-color: #000;">
-            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-01.jpg" alt="Lazy Owl Image"></div>
-            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-02.jpg" alt="Lazy Owl Image"></div>
-            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-03.jpg" alt="Lazy Owl Image"></div>
-            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-04.jpg" alt="Lazy Owl Image"></div>
-            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-05.jpg" alt="Lazy Owl Image"></div>
-            <div class="item"><img class="lazyOwl" data-src="<?php bloginfo('template_url');?>/images/larue-06.jpg" alt="Lazy Owl Image"></div>
+<header>
+    <div id="owl-demo" class="owl-carousel" style="background-color: #000;">
+
+    <?php
+        $args = array(
+            'post_type'         => 'slider',
+            'posts_per_page'    => 10,
+            'orderby'           => 'menu_order',
+            'order'             => 'ASC',
+        );
+    
+        $myposts = get_posts( $args );
+
+        foreach ( $myposts as $post ) : setup_postdata( $post ); 
+        
+        $attachment_id  = get_post_meta( $post->ID, '_id_image',true);
+        $image_link     = get_post_meta($post->ID, '_id_image_link' ,true);
+        $video_url      = get_post_meta($post->ID, '_id_video_url' ,true);
+        $image_src      = wp_get_attachment_image_src($attachment_id, slider);
+    ?>
+
+        <div class="item">
+            <?php if($attachment_id): ?>
+                <a href="<?php echo $image_link; ?>"><img class="lazyOwl" data-src="<?php echo $image_src[0]; ?>" alt="Lazy Owl Image"></a>
+            <?php else: ?>
+                <a class="owl-video" href="<?php echo $video_url; ?>"></a>
+            <?php endif; ?>
         </div>
-    </header>
+
+    <?php endforeach; wp_reset_postdata();?>
+
+    </div>
+</header>
