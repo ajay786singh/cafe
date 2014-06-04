@@ -13,6 +13,8 @@
     		lazyLoad : true,
     		video: true,
     		center:true,
+    		//videoHeight: true,
+    		//videoWidth: true,
     		responsive:{
         		0:{
             		items:1

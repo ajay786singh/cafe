@@ -11,5 +11,7 @@
 	$results = json_cached_results($feeds);
 	show_feed_results($results);
 ?>
+
 </div>
+
 <?php get_footer(); ?>

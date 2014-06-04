@@ -207,8 +207,11 @@ function show_feed_results( $results = NULL ) {
                     </p>
 					</div>                
 	                <!--<div class="element-img" style="background-image:url('<?php echo $feed_img;?>');"></div>-->
-	                <div style="height: 300px;">
+	                <div style="height: 300px; overflow: hidden;">
 		                <img class="element-img" src="<?php echo $feed_img;?>">
+	            	</div>
+	            	<div style="height: 30px; float: right;">
+	            	<div class="fb-like" data-href="<?php echo $link;?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 	            	</div>
 	      
 				</div>
