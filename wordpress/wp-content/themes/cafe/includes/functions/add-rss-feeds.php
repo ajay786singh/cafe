@@ -205,15 +205,15 @@ function show_feed_results( $results = NULL ) {
 						?>
                         </a>
                     </p>
-					</div>                
-	                <!--<div class="element-img" style="background-image:url('<?php echo $feed_img;?>');"></div>-->
+					</div>
 	                <div style="height: 300px; overflow: hidden;">
 		                <img class="element-img" src="<?php echo $feed_img;?>">
 	            	</div>
+	            	
 	            	<div style="height: 30px; float: right;">
-	            	<div class="fb-like" data-href="<?php echo $link;?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-	            	</div>
-	      
+<!--<div class="fb-like" data-href="<?php echo $link;?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>-->
+	            <fb:like href="<?php echo $link;?>" layout="button_count" action="like" show_faces="false" share="true"></fb:like>
+	      		</div>
 				</div>
 
 				<?php

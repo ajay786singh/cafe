@@ -2,6 +2,8 @@
 
 <div id="slider2" class="owl-carousel" style="background-color: #f7f6ed">
 
+
+
 <?php           
 	$feeds = array(
 		array('label'=>'facebook','link'=>'http://www.facebook.com/feeds/page.php?id=145253518873861&format=rss20','filter'=>'social'),
