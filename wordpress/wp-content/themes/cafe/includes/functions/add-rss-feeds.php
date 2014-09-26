@@ -114,8 +114,10 @@ function get_feed_results($feeds) {
 						if($feeds[$i]['label']=='facebook') {
 							if (strpos($img,'_s.jpg') == true) {						
 								$img = explode("_s.jpg", $img);
-								$img[1]="_o.jpg";
+								$img[1]="_n.jpg";
 								$img=implode("",$img);
+								//$img[2]="_n.jpg";
+								//$img=implode("",$img);
 							}
 								$newimg= explode('url=',$img);
 								$img=$newimg[0];
@@ -206,7 +208,7 @@ function show_feed_results( $results = NULL ) {
                         </a>
                     </p>
 					</div>
-	                <div style="height: 300px; overflow: hidden;">
+	                <div style="overflow: hidden;">
 		                <img class="element-img" src="<?php echo $feed_img;?>">
 	            	</div>
 				</div>

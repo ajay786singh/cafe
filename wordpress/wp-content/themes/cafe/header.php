@@ -20,23 +20,8 @@
             <meta property="og:image" content="<?php bloginfo('template_url' ); ?>/images/logo.png">
     <?php } endwhile; endif; ?>
     <?php wp_reset_query(); ?>
-    <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
     
     <?php wp_head(); ?>
-    
-    <script type="text/javascript">
-        /*Google Analytics
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-1322597-2']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-        */
-    </script>
 
     <!--         
     When using Google Maps on your own site you MUST signup for your own API key at:
@@ -199,16 +184,17 @@
 
 <body>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=295402343969195&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 
 <header>
-    <!--<div id="owl-demo" class="owl-carousel" style="background-color: #000;">-->
     <div id="slider1" class="owl-carousel">
 
     <?php
@@ -229,13 +215,11 @@
         $image_src      = wp_get_attachment_image_src($attachment_id, slider);
     ?>
 
-        <!--<div class="item">-->
             <?php if($attachment_id): ?>
                 <a href="<?php echo $image_link; ?>"><img src="<?php echo $image_src[0]; ?>" alt="<?php the_title(); ?>"></a>
             <?php else: ?>
                 <a class="owl-video" href="<?php echo $video_url; ?>"></a>
             <?php endif; ?>
-        <!--</div>-->
 
     <?php endforeach; wp_reset_postdata();?>
 
