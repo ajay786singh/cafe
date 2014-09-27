@@ -95,8 +95,10 @@ function get_feed_results($feeds) {
 			$result = file_get_contents('http://ajax.googleapis.com/ajax/services/feed/load?' . http_build_query($params));
 			$json = json_decode($result);
 			$data = $json->responseData;
+			
 			// json version
 			if($data->feed->entries) {
+				
 				foreach ($data->feed->entries as $entry) {
 					
 					$title=$entry->title;
@@ -112,35 +114,19 @@ function get_feed_results($feeds) {
 					foreach ($tags as $tag) {
 						$img = $tag->getAttribute('src');
 						if($feeds[$i]['label']=='facebook') {
-							if (strpos($img,'_s.jpg') == true) {						
-								$img = explode("_s.jpg", $img);
-								$img[1]="_n.jpg";
-								$img=implode("",$img);
-								//$img[2]="_n.jpg";
-								//$img=implode("",$img);
+							if (strpos($img,'v/t1.0-9/s130x130/') == true) {
+								$img = explode("/v/t1.0-9/s130x130/", $img);
+								$img=implode("/",$img);
 							}
-								$newimg= explode('url=',$img);
-								$img=$newimg[0];
-								if($newimg[1]){
-									$img=urldecode($newimg[1]);
-								}
-								if(is_url_exist($img)=='' || is_url_exist($img)!=1){
-									$img=get_bloginfo('template_url')."/images/logo.png";	
-								}
-								
-						}
+							if (strpos($img,'url=') == true) {
+								$img = explode("url=", $img);
+								$img = urldecode($img[1]);
+							}
+						}	
 					}
 					// Push feed entries to an array
 					$newDate = date("d-m-Y H:i:s", strtotime($entry->publishedDate));
-					$feed_img=explode("&",$img);
-					$img=$feed_img[0];
-					if($feeds[$i]['label']=='recipes') {
-							if($img && preg_match('/^(http|https):\/\/([a-z0-9-]\.+)*/i', $img)==true) {
-								$results[] = array('title'=>$title,'link'=>$entry->link,'img'=>$img,'date'=>$newDate,'author'=>$author,'label'=>$feeds[$i]['label'],'filter'=>$feeds[$i]['filter']);
-							}
-					}else {
-						$results[] = array('title'=>$title,'link'=>$entry->link,'img'=>$img,'date'=>$newDate,'author'=>$author, 'label'=>$feeds[$i]['label'],'filter'=>$feeds[$i]['filter']);
-					}
+					$results[] = array('title'=>$title,'link'=>$entry->link,'img'=>$img,'date'=>$newDate,'author'=>$author, 'label'=>$feeds[$i]['label'],'filter'=>$feeds[$i]['filter']);
 				}
 			}
 		}
@@ -155,6 +141,7 @@ function get_feed_results($feeds) {
 				<?php
 			}
 		}
+		
 		return $results;
 }
 
@@ -208,8 +195,8 @@ function show_feed_results( $results = NULL ) {
                         </a>
                     </p>
 					</div>
-	                <div style="overflow: hidden;">
-		                <img class="element-img" src="<?php echo $feed_img;?>">
+	                <div style="overflow: hidden;width: 100%;height: 250px; background-image:url(<?php echo $feed_img;?>); background-repeat:no-repeat; background-size: cover; background-position: center center;">
+		                <img class="element-img" src="<?php echo $feed_img;?>" style="display:none;">
 	            	</div>
 				</div>
 
