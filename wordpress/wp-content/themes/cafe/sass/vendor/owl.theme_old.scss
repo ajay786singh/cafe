@@ -11,6 +11,10 @@
 /* Styling Next and Prev buttons */
 
 .owl-theme .owl-controls .owl-buttons div {
+    /*IE7 life-saver */
+    margin: 5px;
+    /*IE7 fix*/
+    opacity: 0.5;
     *display: inline;
     -moz-border-radius: 30px;
     -webkit-border-radius: 30px;
@@ -20,10 +24,6 @@
     display: inline-block;
     filter: Alpha(Opacity = 50);
     font-size: 12px;
-    /*IE7 life-saver */
-    margin: 5px;
-    /*IE7 fix*/
-    opacity: 0.5;
     padding: 3px 10px;
     zoom: 1;
 }
@@ -31,9 +31,9 @@
 /* Clickable class fix problem with hover on touch devices */
 /* Use it for non-touch hover action */
 .owl-theme .owl-controls.clickable .owl-buttons div:hover {
-    filter: Alpha(Opacity = 100);
     /*IE7 fix*/
     opacity: 1;
+    filter: Alpha(Opacity = 100);
     text-decoration: none;
 }
 
@@ -47,25 +47,25 @@
 }
 
 .owl-theme .owl-controls .owl-page span {
+    //display: none;
+    display: block;
+    /*IE7 fix*/
+    opacity: 0.5;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     background: #869791;
     border-radius: 20px;
-    //display: none;
-    display: block;
     filter: Alpha(Opacity = 50);
     height: 12px;
     margin: 5px 7px;
-    /*IE7 fix*/
-    opacity: 0.5;
     width: 12px;
 }
 
 .owl-theme .owl-controls .owl-page.active span,
 .owl-theme .owl-controls.clickable .owl-page:hover span {
-    filter: Alpha(Opacity = 100);
     /*IE7 fix*/
     opacity: 1;
+    filter: Alpha(Opacity = 100);
 }
 
 /* If PaginationNumbers is true */

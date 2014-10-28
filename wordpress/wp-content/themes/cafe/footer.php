@@ -1,5 +1,8 @@
 <footer>
 	<div id="map"></div>
+	<div class="toggle-map"><a href="">Show more</a></div>
+	<div class="location-toggle" id="location-1" style="position:absolute; z-index:10; width:100px; margin:0 auto;"><a href="">Location 1</a></div>
+	<div class="location-toggle" id="location-2" style="position:absolute; z-index:10; width:100px; margin:0 auto;"><a href="">Location 2</a></div>
 </footer>
 <?php wp_footer();?>
 <script>
@@ -49,9 +52,7 @@
         });
 
 
-	});
-
-	
+	});	
 </script>
 </body>
 </html>
