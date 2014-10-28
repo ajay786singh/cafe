@@ -32,7 +32,7 @@
         // When the window has finished loading create our google map below
         google.maps.event.addDomListener(window, 'resize', init);
         google.maps.event.addDomListener(window, 'load', init);
-        
+        var map;
         function init() {
             // Basic options for a simple Google Map
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
@@ -142,8 +142,8 @@
             var mapElement = document.getElementById('map');
 
             // Create the Google Map using out element and options defined above
-            var map = new google.maps.Map(mapElement, mapOptions);
-
+            map = new google.maps.Map(mapElement, mapOptions);
+			var bounds = new google.maps.LatLngBounds();
             // Define Marker properties
             var image = new google.maps.MarkerImage('<?php bloginfo(template_url)?>/images/map-pointer.png',
                 // This marker is 129 pixels wide by 42 pixels tall.
@@ -153,30 +153,47 @@
                 // The anchor for this image is the base of the flagpole at 18,42.
                 new google.maps.Point(25, 73)
             );
+				var markers = [
+					['Cafe Larue & Fils', 45.538776, -73.618085],
+					['Cafe Larue & Fils', 45.5351559,-73.6445067]
+				];
+				
+				 // Info Window Content
+				var infoWindowContent = [
+					['<div class="info_content">' +
+					'<h3>Cafe Larue & Fils</h3>' +
+					'<p>244 de Castelnau Est.<br>272-8087</p>' +'</div>'],
+					['<div class="info_content">' +
+					'<h3>Cafe Larue & Fils</h3>' +
+					'<p>30 Boulevard Saint-Laurent,.<br>272-8087</p>' +
+					'</div>']
+				];
+				
+				// Display multiple markers on a map
+				var infoWindow = new google.maps.InfoWindow(), marker, i;
+				
+				// Loop through our array of markers & place each one on the map  
+				for( i = 0; i < markers.length; i++ ) {
+					var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+					bounds.extend(position);
+					marker = new google.maps.Marker({
+						position: position,
+						map: map,
+						title: markers[i][0],
+						icon: image
+					});
+					
+					// Allow each marker to have an info window    
+					google.maps.event.addListener(marker, 'click', (function(marker, i) {
+						return function() {
+							infoWindow.setContent(infoWindowContent[i][0]);
+							infoWindow.open(map, marker);
+						}
+					})(marker, i));
 
-            // Add Marker
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(45.537776, -73.618085,17),
-                map: map,
-                icon: image // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-
-            });
-
-            // Create our info window content   
-            var infoWindowContent = '<div class="info_content">' +
-                '<h3>Cafe Larue & Fils</h3>' +
-                '<p>244 de Castelnau Est.<br>272-8087</p>' +
-            '</div>';
-
-            // Initialise the inforWindow
-            var infoWindow = new google.maps.InfoWindow({
-                content: infoWindowContent
-            });
-
-            // Display our info window when the marker is clicked
-            google.maps.event.addListener(marker, 'click', function() {
-                infoWindow.open(map, marker);
-            });
+					// Automatically center the map fitting all markers on the screen
+					map.fitBounds();
+				}
         }
     </script>
 

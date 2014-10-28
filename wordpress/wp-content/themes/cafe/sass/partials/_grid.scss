@@ -5,9 +5,9 @@ $susy: (columns: 6, gutters: 1, gutter-position: inside);
 $desktop: layout(12);
 
 .container {
-    @include container(80em);
     //border: 1px solid red;
     position: relative;
+    @include container(80em);
 }
 
 .span-2 {
@@ -131,4 +131,39 @@ $desktop: layout(12);
     background-size: cover;
     min-height: 312px;
     position: relative;
+}
+
+footer {
+    position: relative;
+}
+
+.toggle-map {
+    background: white;
+    bottom: 0;
+    display: block;
+    left: 45%;
+    margin-left: auto;
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    z-index: 10;
+}
+
+.location-toggle {
+    background: black;
+    color: white;
+    display: block;
+    left: 40px;
+    margin-left: auto;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100px;
+    z-index: 10;
+    &#location-2 {
+        left: 150px;
+    }
+    a {
+        color: white;
+    }
 }
