@@ -194,7 +194,92 @@
 					// Automatically center the map fitting all markers on the screen
 					map.fitBounds();
 				}
+				
+				  // Create the DIV to hold the control and
+				  // call the HomeControl() constructor passing
+				  // in this DIV.
+				  
+				  var locationControlDiv1 = document.createElement('div');
+				  var locationControl1 = new LocationControl1(locationControlDiv1, map);
+				  locationControlDiv1.index = 1;
+				  map.controls[google.maps.ControlPosition.TOP_LEFT].push(locationControlDiv1);
+				  
+				  var locationControlDiv2 = document.createElement('div');
+				  var locationControl2 = new LocationControl2(locationControlDiv2, map);
+				  locationControlDiv2.index = 2;
+				  map.controls[google.maps.ControlPosition.TOP_LEFT].push(locationControlDiv2);
         }
+		
+		var location1 = new google.maps.LatLng(45.538776, -73.618085);
+		var location2 = new google.maps.LatLng(45.5351559,-73.6445067);
+		
+		function LocationControl1(controlDiv, map) {
+			// Set CSS styles for the DIV containing the control
+			// Setting padding to 5 px will offset the control
+			// from the edge of the map
+			controlDiv.style.padding = '5px';
+
+			// Set CSS for the control border
+			var controlUI = document.createElement('div');
+			controlUI.style.backgroundColor = 'black';
+			controlUI.style.borderStyle = '';
+			controlUI.style.borderWidth = '';
+			controlUI.style.cursor = 'pointer';
+			controlUI.style.textAlign = 'center';
+			controlUI.title = 'Click to set the map to Home';
+			controlDiv.appendChild(controlUI);
+
+			// Set CSS for the control interior
+			var controlText = document.createElement('div');
+			controlText.style.fontFamily = 'Arial,sans-serif';
+			controlText.style.fontSize = '15px';
+			controlText.style.color = 'white';
+			controlText.style.paddingLeft = '4px';
+			controlText.style.paddingRight = '4px';
+			controlText.innerHTML = '<b>Location 1</b>';
+			controlUI.appendChild(controlText);
+
+			// Setup the click event listeners: simply set the map to
+			// Chicago
+			google.maps.event.addDomListener(controlUI, 'click', function() {
+				map.setCenter(location1)
+			});
+
+		}
+		
+		function LocationControl2(controlDiv, map) {
+			// Set CSS styles for the DIV containing the control
+			// Setting padding to 5 px will offset the control
+			// from the edge of the map
+			controlDiv.style.padding = '5px';
+
+			// Set CSS for the control border
+			var controlUI = document.createElement('div');
+			controlUI.style.backgroundColor = 'black';
+			controlUI.style.borderStyle = '';
+			controlUI.style.borderWidth = '';
+			controlUI.style.cursor = 'pointer';
+			controlUI.style.textAlign = 'center';
+			controlUI.title = 'Click to set the map to Home';
+			controlDiv.appendChild(controlUI);
+
+			// Set CSS for the control interior
+			var controlText = document.createElement('div');
+			controlText.style.fontFamily = 'Arial,sans-serif';
+			controlText.style.fontSize = '15px';
+			controlText.style.color = 'white';
+			controlText.style.paddingLeft = '4px';
+			controlText.style.paddingRight = '4px';
+			controlText.innerHTML = '<b>Location 2</b>';
+			controlUI.appendChild(controlText);
+
+			// Setup the click event listeners: simply set the map to
+			// Chicago
+			google.maps.event.addDomListener(controlUI, 'click', function() {
+				map.setCenter(location2)
+			});
+
+		}
     </script>
 
 </head>
