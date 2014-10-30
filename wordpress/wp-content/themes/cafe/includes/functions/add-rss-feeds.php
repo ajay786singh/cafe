@@ -113,14 +113,37 @@ function get_feed_results($feeds) {
 					$img=''; 		
 					foreach ($tags as $tag) {
 						$img = $tag->getAttribute('src');
-						if($feeds[$i]['label']=='facebook') {
-							if (strpos($img,'v/t1.0-9/s130x130/') == true) {
-								$img = explode("/v/t1.0-9/s130x130/", $img);
-								$img=implode("/",$img);
-							}
+						if($feeds[$i]['label']=='pinterest') {	
+							$img = str_replace('/192x/', '/736x/', $img);
+						}
+						if($feeds[$i]['label']=='facebook') {								
 							if (strpos($img,'url=') == true) {
 								$img = explode("url=", $img);
 								$img = urldecode($img[1]);
+							}
+							
+							if (strpos($img,'/v/t1.0-9/') == true) {
+								$img = explode("/v/t1.0-9/", $img);
+								$img=implode("/",$img);
+							}
+							
+							if (strpos($img,'/v/t1.0-9/s720x720/') == true) {
+								$img = explode("/v/t1.0-9/s720x720/", $img);
+								$img=implode("/",$img);
+							}
+							
+							if (strpos($img,'/p130x130/') == true) {
+								$img = explode("/p130x130/", $img);
+								$img=implode("/",$img);
+							}
+							
+							if (strpos($img,'/s130x130/') == true) {
+								$img = explode("/s130x130/", $img);
+								$img=implode("/",$img);
+							}
+							if (strpos($img,'/p100x100/') == true) {
+								$img = explode("/p100x100/", $img);
+								$img=implode("/",$img);
 							}
 						}	
 					}
