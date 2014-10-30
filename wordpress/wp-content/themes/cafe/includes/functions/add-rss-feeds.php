@@ -208,8 +208,8 @@ function show_feed_results( $results = NULL ) {
                     <p class="title">
                     	<a href="<?php echo $link;?>" <?php if($label!='blog') { ?> target="_blank" <?php } ?>>
 						<?php 					
-							if (strlen($title) > 50 && $label !='twitter') {
-								echo substr($title, 0, 200) . '...'; 
+							if (strlen($title) > 100 && $label !='twitter') {
+								echo substr($title, 0, 100) . '...'; 
 							
 							} else {
 								echo $title;
