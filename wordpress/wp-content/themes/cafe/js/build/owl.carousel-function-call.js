@@ -30,6 +30,7 @@
             lazyLoad : true,
             video: true,
             center:true,
+			startPosition:2,
             responsive:{
                 0:{
                     items:1
