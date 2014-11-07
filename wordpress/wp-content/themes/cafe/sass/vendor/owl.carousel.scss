@@ -115,10 +115,10 @@
 }
 
 .owl-carousel .owl-item {
+    //-webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
     -moz-user-select: none;
     -ms-user-select: none;
-    -webkit-backface-visibility: hidden;
-    -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     float: left;
@@ -128,7 +128,6 @@
 }
 
 .owl-carousel .owl-item img {
-    //-webkit-transform-style: preserve-3d;
     display: block;
     width: 100%;
 }
@@ -173,10 +172,6 @@
     transition: opacity 400ms ease;
 }
 
-.owl-carousel .owl-item img {
-    //transform-style: preserve-3d;
-}
-
 /* 
  * 	Owl Carousel - Video Plugin
  */
@@ -187,11 +182,11 @@
 }
 
 .owl-carousel .owl-video-play-icon {
+    //-webkit-backface-visibility: hidden;
+    -webkit-transition: scale 100ms ease;
     -moz-transition: scale 100ms ease;
     -ms-transition: scale 100ms ease;
     -o-transition: scale 100ms ease;
-    -webkit-backface-visibility: hidden;
-    -webkit-transition: scale 100ms ease;
     background: url("images/owl.video.play.png") no-repeat;
     cursor: pointer;
     height: 80px;
