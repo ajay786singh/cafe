@@ -138,7 +138,7 @@ footer {
 }
 
 .toggle-map {
-    background: white;
+    background: black;
     bottom: 0;
     display: block;
     left: 45%;
@@ -147,6 +147,12 @@ footer {
     text-align: center;
     width: 100px;
     z-index: 10;
+    a {
+        color: white;
+        &:hover {
+            color: white;
+        }
+    }
 }
 
 .location-toggle {
