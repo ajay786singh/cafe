@@ -157,10 +157,15 @@
 				var infoWindowContent = [
 					['<div class="info_content">' +
 					'<h3>Cafe Larue & Fils</h3>' +
-					'<p>244 de Castelnau Est.<br>272-8087</p>' +'</div>'],
+					'<p>244 de Castelnau Est.<br>(514)272-8087</p>' +
+                    '<p>L/V: 7h - 19h<br>' +
+                    'S/D: 9h - 18h</p>' +
+                    '</div>'],
 					['<div class="info_content">' +
 					'<h3>Cafe Larue & Fils</h3>' +
-					'<p>405 Jarry Est,.<br>272-8087</p>' +
+					'<p>405 Jarry Est,.<br>(514)272-8087</p>' +
+                    '<p>L/V: 6h30 - 19h<br>' +
+                    'S/D: 7h30 - 18h</p>' +
 					'</div>']
 				];
 				
