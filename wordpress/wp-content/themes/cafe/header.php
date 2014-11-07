@@ -27,6 +27,7 @@
     <script type="text/javascript">
 		
         var map;
+		var infobox;
         function init() {
             // Basic options for a simple Google Map
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
@@ -180,8 +181,23 @@
 					// Allow each marker to have an info window    
 					google.maps.event.addListener(marker, 'click', (function(marker, i) {
 						return function() {
-							infoWindow.setContent(infoWindowContent[i][0]);
-							infoWindow.open(map, marker);
+							infobox = new InfoBox({
+								//content: document.getElementById("infobox1"),
+								disableAutoPan: false,
+								maxWidth: 150,
+								pixelOffset: new google.maps.Size(-140, -190),
+								zIndex: null,
+								boxStyle: {
+											background: "black",
+											opacity: 1,
+											width: "280px"
+									},
+								closeBoxMargin: "12px 4px 2px 2px",
+								closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+								infoBoxClearance: new google.maps.Size(1, 1)
+							});
+							infobox.setContent(infoWindowContent[i][0]);
+							infobox.open(map, marker);
 						}
 					})(marker, i));
 
