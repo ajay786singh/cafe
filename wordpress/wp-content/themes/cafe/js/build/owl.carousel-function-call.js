@@ -30,16 +30,17 @@
             lazyLoad : true,
             video: true,
             center:true,
-			startPosition:2,
             responsive:{
                 0:{
                     items:1
                 },
                 600:{
+					startPosition:1,
                     items:3
                 },
                 1000:{
-                    items:5
+					startPosition:2,
+					items:5
                 }
             }
         });
