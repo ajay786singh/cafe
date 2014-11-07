@@ -239,6 +239,7 @@
     background: $black;
     @include susy-breakpoint(55em, $desktop) {
         height: 500px;
+        padding-top: 50px;
     }
     .owl-item {
         img {
