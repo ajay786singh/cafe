@@ -148,8 +148,8 @@
                 new google.maps.Point(25, 73)
             );
 				var markers = [
-					['Cafe Larue & Fils', 45.538776, -73.618085],
-					['Cafe Larue & Fils', 45.5351559,-73.6445067]
+					['Cafe Larue & Fils', 45.5378437, -73.6181039], //244 de Castelnau
+					['Cafe Larue & Fils', 45.5428795,-73.6292336] // 405 Jarry
 				];
 				
 				 // Info Window Content
@@ -159,7 +159,7 @@
 					'<p>244 de Castelnau Est.<br>272-8087</p>' +'</div>'],
 					['<div class="info_content">' +
 					'<h3>Cafe Larue & Fils</h3>' +
-					'<p>30 Boulevard Saint-Laurent,.<br>272-8087</p>' +
+					'<p>405 Jarry Est,.<br>272-8087</p>' +
 					'</div>']
 				];
 				
@@ -204,8 +204,8 @@
 				  map.controls[google.maps.ControlPosition.TOP_LEFT].push(locationControlDiv2);
         }
 		
-		var location1 = new google.maps.LatLng(45.538776, -73.618085);
-		var location2 = new google.maps.LatLng(45.5351559,-73.6445067);
+		var location1 = new google.maps.LatLng(45.5378437, -73.6181039); // 244 de Castelnau Est
+		var location2 = new google.maps.LatLng(45.5428795,-73.6292336);
 		
 		function LocationControl1(controlDiv, map) {
 			// Set CSS styles for the DIV containing the control
@@ -230,7 +230,7 @@
 			controlText.style.color = 'white';
 			controlText.style.paddingLeft = '4px';
 			controlText.style.paddingRight = '4px';
-			controlText.innerHTML = '<b>Location 1</b>';
+			controlText.innerHTML = '<b>244 de Castelnau Est</b>';
 			controlUI.appendChild(controlText);
 
 			// Setup the click event listeners: simply set the map to
@@ -264,7 +264,7 @@
 			controlText.style.color = 'white';
 			controlText.style.paddingLeft = '4px';
 			controlText.style.paddingRight = '4px';
-			controlText.innerHTML = '<b>Location 2</b>';
+			controlText.innerHTML = '<b>405 Jarry Est</b>';
 			controlUI.appendChild(controlText);
 
 			// Setup the click event listeners: simply set the map to
