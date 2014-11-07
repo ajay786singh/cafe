@@ -233,3 +233,17 @@
     position: relative;
     z-index: 1;
 }
+
+#slider1 {
+
+    background: $black;
+    @include susy-breakpoint(55em, $desktop) {
+        height: 500px;
+    }
+    .owl-item {
+        img {
+            margin: auto;
+            width: auto;
+        }
+    }
+}

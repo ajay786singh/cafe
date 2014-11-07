@@ -20,11 +20,6 @@ Version: 1.0
 @import "modules/colors";
 @import "modules/mixins";
 
-// Vendor
-@import "vendor/owl.carousel";
-
-@import "vendor/owl.theme.default";
-
 // Partials
 @import "core";
 @import "grid";
@@ -32,6 +27,11 @@ Version: 1.0
 @import "typography-custom";
 @import "banner";
 @import "social-share";
+
+// Vendor
+@import "vendor/owl.carousel";
+
+@import "vendor/owl.theme.default";
 
 /* Flexible iFrame */
 
