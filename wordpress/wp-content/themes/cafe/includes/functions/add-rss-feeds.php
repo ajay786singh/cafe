@@ -1,4 +1,34 @@
 <?php
+function fetch_instagram_feed($url) {
+	$ch = curl_init($url); 
+	 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20); 
+	 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+	 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+
+		$json = curl_exec($ch); 
+		$data=json_decode($json, true);
+		$result=$data['data'];
+		$results='';
+		$img='';
+		$date='';
+		$total_feeds=count($result);	
+		
+		if($total_feeds>0) {
+			for($i=0;$i<$total_feeds;$i++) {
+				$img = $result[$i]['images']['standard_resolution']['url'];
+				$date = date("d-m-Y H:i:s", $result[$i]['created_time']);
+				$title = $result[$i]['caption']['text'];
+				$link = $result[$i]['link'];
+			
+				$results[]=array('title'=>$title,'link'=>$link,'img'=>$img,'date'=>$date,'label'=>'instagram','filter'=>'social');
+			}
+		}
+	
+	curl_close($ch);
+
+	return $results;
+}
+
 function is_url_exist($url){
     $ch = curl_init($url);    
     curl_setopt($ch, CURLOPT_NOBODY, true);
@@ -153,7 +183,23 @@ function get_feed_results($feeds) {
 				}
 			}
 		}
-
+		// Get Instagram Feeds
+		$instagram_tags = array('cafelarue','cafelarueetfils','cafelarueetfilsjarry');
+		for($i=0;$i<count($instagram_tags);$i++) {
+			$instagram_url="";
+			$instagram_feeds="";
+			$client_id="84e0a91bb0ca49bc91b0b5d88eb1289c";
+			$instagram_url='https://api.instagram.com/v1/tags/'.$instagram_tags[$i].'/media/recent?client_id='.$client_id;
+			$instagram_feeds=fetch_instagram_feed($instagram_url);
+			
+			if($instagram_feeds !='') {
+				if($results !='') {
+					$results=array_merge($instagram_feeds,$results);
+				}else {
+					$results=$instagram_feeds;	
+				}
+			}
+		}
 				
 		if($results) {
 			usort($results, "sort_by_date");
