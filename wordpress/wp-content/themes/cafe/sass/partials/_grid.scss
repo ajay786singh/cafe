@@ -5,9 +5,9 @@ $susy: (columns: 6, gutters: 1, gutter-position: inside);
 $desktop: layout(12);
 
 .container {
+    @include container(80em);
     //border: 1px solid red;
     position: relative;
-    @include container(80em);
 }
 
 .span-2 {

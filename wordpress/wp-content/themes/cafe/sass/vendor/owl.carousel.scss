@@ -56,10 +56,10 @@
  *  Core Owl Carousel CSS File
  */
 .owl-carousel {
-    /* position relative and z-index fix webkit rendering fonts issue */
-    position: relative;
     -webkit-tap-highlight-color: transparent;
     display: none;
+    /* position relative and z-index fix webkit rendering fonts issue */
+    position: relative;
     width: 100%;
     z-index: 1;
 }
@@ -115,10 +115,10 @@
 }
 
 .owl-carousel .owl-item {
-    //-webkit-backface-visibility: hidden;
-    -webkit-tap-highlight-color: transparent;
     -moz-user-select: none;
     -ms-user-select: none;
+    //-webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     float: left;
@@ -182,11 +182,11 @@
 }
 
 .owl-carousel .owl-video-play-icon {
-    //-webkit-backface-visibility: hidden;
-    -webkit-transition: scale 100ms ease;
     -moz-transition: scale 100ms ease;
     -ms-transition: scale 100ms ease;
     -o-transition: scale 100ms ease;
+    //-webkit-backface-visibility: hidden;
+    -webkit-transition: scale 100ms ease;
     background: url("images/owl.video.play.png") no-repeat;
     cursor: pointer;
     height: 80px;
@@ -238,8 +238,8 @@
 
     background: $black;
     @include susy-breakpoint(55em, $desktop) {
-        height: 500px;
-        padding-top: 50px;
+        height: 450px;
+        padding-top: 0px;
     }
     .owl-item {
         img {
