@@ -69,13 +69,16 @@ Version: 1.0
 }
 
 #slider1 .owl-prev {
-    background: url("images/prev.png") no-repeat;
-    height: 57px;
-    left: 0;
-    position: absolute;
-    text-indent: -99999px;
-    top: 30%;
-    width: 72px;
+
+    @include susy-breakpoint(55em, $desktop) {
+        background: url("images/prev.png") no-repeat;
+        height: 57px;
+        left: 0;
+        position: absolute;
+        text-indent: -99999px;
+        top: 30%;
+        width: 72px;
+    }
     @include susy-breakpoint(55em, $desktop) {
         top: 44%;
     }
@@ -121,7 +124,11 @@ Version: 1.0
 }
 
 .owl-theme .owl-controls {
-    margin-top: 0px;
+    display: none;
+    @include susy-breakpoint(55em, $desktop) {
+        display: inline;
+        margin-top: 0px;
+    }
 }
 
 .facebook {

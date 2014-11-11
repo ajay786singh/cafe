@@ -4,16 +4,16 @@ jQuery(document).ready(function($) {
 		var map = $('#map');
 		var height=map.height();
 
-		if(text=='Show more') {
+		if(text=='+ GROS') {
 			map.height(2*height);
-			$(this).text('Hide more');
+			$(this).text('- MOINS');
 			$("html, body").animate({
 			  scrollTop: $('.toggle-map').offset().top + $('.toggle-map').outerHeight(true)
 			}, 500);
 			
 		}else {
 			map.height(height/2);
-			$(this).text('Show more');
+			$(this).text('+ GROS');
 		}
 		return false;
 	});	
