@@ -203,3 +203,10 @@ footer {
     background-image: linear-gradient(left bottom, #dedfd4 0%, #988573 0%, #7c9490 87%);
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#dedfd4, endColorstr=#988573);
 }
+
+#slider2 {
+    -moz-box-shadow: inset -110px 20px 80px -12px #C4AA95;
+    -o-box-shadow: inset -110px 20px 80px -12px #C4AA95;
+    -webkit-box-shadow: inset -110px 20px 80px -12px #C4AA95;
+    box-shadow: inset -110px 20px 80px -12px #C4AA95;
+}

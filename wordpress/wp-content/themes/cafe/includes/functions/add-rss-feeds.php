@@ -240,7 +240,7 @@ function show_feed_results( $results = NULL ) {
 				
 				?>
 
-				<div style="background-color: #f7f6ed;" class="element-item item <?php echo $label;?> <?php echo $filter;?>" data-category="transition" id="<?php echo "item_".$id;?>">
+				<div class="element-item item <?php echo $label;?> <?php echo $filter;?>" data-category="transition" id="<?php echo "item_".$id;?>">
 						<?php 
 								if($feed_img==''){
 									$feed_img="http://www.cabotcheese.coop/pages/recipes/images/Recipe_NoImage2.jpg";
