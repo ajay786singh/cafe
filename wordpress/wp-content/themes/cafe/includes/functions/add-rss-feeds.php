@@ -219,6 +219,13 @@ function show_feed_results( $results = NULL ) {
     if( !$results ) return false;
 	$total = count($results);
 	?>
+	<div class="first-element element-item item" data-category="transition">
+		<div style="overflow: hidden;width: 100%;height: 402px; background-image:url(<?php bloginfo('template_url');?>/images/feed-dummy.png); background-repeat:no-repeat; background-size: 100%; background-position: center center;">
+			<img class="element-img" src="<?php bloginfo('template_url');?>/images/feed-dummy.png" style="display:none;">
+		</div>
+	</div>
+	
+	
     <?php
 			$i=0;
 			foreach( $results as $result) {

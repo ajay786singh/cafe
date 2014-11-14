@@ -5,9 +5,9 @@ $susy: (columns: 6, gutters: 1, gutter-position: inside);
 $desktop: layout(12);
 
 .container {
-    @include container(80em);
     //border: 1px solid red;
     position: relative;
+    @include container(80em);
 }
 
 .span-2 {
@@ -191,4 +191,15 @@ footer {
         left: 44%;
         position: absolute;
     }
+}
+
+.first-element {
+    background-color: #dedfd4;
+    background-image: -moz-linear-gradient(left bottom, #dedfd4 0%, #988573 0%, #7c9490 87%);
+    background-image: -ms-linear-gradient(left bottom, #dedfd4 0%, #988573 0%, #7c9490 87%);
+    background-image: -o-linear-gradient(left bottom, #dedfd4 0%, #988573 0%, #7c9490 87%);
+    background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #dedfd4), color-stop(0%, #988573), color-stop(87%, #7c9490));
+    background-image: -webkit-linear-gradient(left bottom, #dedfd4 0%, #988573 0%, #7c9490 87%);
+    background-image: linear-gradient(left bottom, #dedfd4 0%, #988573 0%, #7c9490 87%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#dedfd4, endColorstr=#988573);
 }
