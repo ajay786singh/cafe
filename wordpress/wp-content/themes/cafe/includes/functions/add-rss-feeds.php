@@ -256,7 +256,7 @@ function show_feed_results( $results = NULL ) {
 							?>
 					<p class="none"><?php echo $label;?></p>
                     <div class="element-title" style="height: 100px; margin: 0 12px 18px 12px;">
-                    	<p><b>Caf&eacute; Larue &#038; Fils //</b> Posted <?php echo date("M d, Y", strtotime($newDate));?></p>
+                    	<p><b><?php echo $author;?></b> Posted <?php echo date("M d, Y", strtotime($newDate));?></p>
 					
                     <p class="title">
                     	<a href="<?php echo $link;?>" <?php if($label!='blog') { ?> target="_blank" <?php } ?>>

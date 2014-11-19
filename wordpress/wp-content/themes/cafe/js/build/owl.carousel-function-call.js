@@ -8,6 +8,8 @@
     		lazyLoad : true,
     		video: true,
     		center:true,
+            autoplay: true,
+            autoplayHoverPause: true,
     		responsive:{
         		0:{
             		items:1

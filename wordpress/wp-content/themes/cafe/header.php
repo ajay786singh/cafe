@@ -20,7 +20,7 @@
             <meta property="og:image" content="<?php bloginfo('template_url' ); ?>/images/logo.png">
     <?php } endwhile; endif; ?>
     <?php wp_reset_query(); ?>
-    
+    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
     <?php wp_head(); ?>
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14&key=AIzaSyBIiiFbPAKfTIqOC8K4sKqf1DB39Uh1hZc&sensor=false"></script>

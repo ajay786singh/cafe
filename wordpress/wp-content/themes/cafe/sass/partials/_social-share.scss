@@ -1,5 +1,4 @@
 .social-share {
-
     position: relative;
     @include susy-breakpoint(55em, $desktop) {
         @include box-shadow((-2px) 1px 6px 0px rgba(50, 50, 50, 0.75));
@@ -10,13 +9,13 @@
         position: absolute;
         right: 0;
     }
+
     ul {
         list-style: none;
         margin-bottom: 0;
         padding: 10px 5px 10px 5px;
         text-align: center;
         li {
-
             display: inline-block;
             margin-bottom: 20px;
             margin-left: 5px;
@@ -24,6 +23,7 @@
                 display: block;
                 margin-bottom: 5px;
             }
+
             &:last-child {
                 margin-bottom: 0px;
             }

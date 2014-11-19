@@ -80,7 +80,7 @@ module.exports = function(grunt) {
         //Sort SASS properties alphabetically and indent
         prettysass: {
             options: {
-                alphabetize: true,
+                alphabetize: false,
                 indent: 4
             },
             app: {

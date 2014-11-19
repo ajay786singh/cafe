@@ -38,12 +38,12 @@
 }
 
 .owl-theme .owl-dots .owl-dot span {
-    //-webkit-backface-visibility: hidden;
-    -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     -moz-transition: opacity 200ms ease;
     -ms-transition: opacity 200ms ease;
     -o-transition: opacity 200ms ease;
+    //-webkit-backface-visibility: hidden;
+    -webkit-border-radius: 30px;
     -webkit-transition: opacity 200ms ease;
     background: #d6d6d6;
     border-radius: 30px;
