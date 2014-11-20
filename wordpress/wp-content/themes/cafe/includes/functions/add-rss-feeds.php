@@ -19,8 +19,8 @@ function fetch_instagram_feed($url) {
 				$date = date("d-m-Y H:i:s", $result[$i]['created_time']);
 				$title = $result[$i]['caption']['text'];
 				$link = $result[$i]['link'];
-			
-				$results[]=array('title'=>$title,'link'=>$link,'img'=>$img,'date'=>$date,'label'=>'instagram','filter'=>'social');
+				$author=$result[$i]['caption']['from']['full_name'];
+				$results[]=array('title'=>$title,'author'=>$author,'link'=>$link,'img'=>$img,'date'=>$date,'label'=>'instagram','filter'=>'social');
 			}
 		}
 	
@@ -130,8 +130,8 @@ function get_feed_results($feeds) {
 			if($data->feed->entries) {
 				
 				foreach ($data->feed->entries as $entry) {
-					
 					$title=$entry->title;
+					$author=$entry->author;
 					if($feeds[$i]['label']=='pinterest') {
 						$title=$entry->contentSnippet;	
 					}
@@ -179,7 +179,7 @@ function get_feed_results($feeds) {
 					}
 					// Push feed entries to an array
 					$newDate = date("d-m-Y H:i:s", strtotime($entry->publishedDate));
-					$results[] = array('title'=>$title,'link'=>$entry->link,'img'=>$img,'date'=>$newDate,'author'=>$author, 'label'=>$feeds[$i]['label'],'filter'=>$feeds[$i]['filter']);
+					$results[] = array('title'=>$title,'author'=>$author,'link'=>$entry->link,'img'=>$img,'date'=>$newDate,'author'=>$author, 'label'=>$feeds[$i]['label'],'filter'=>$feeds[$i]['filter']);
 				}
 			}
 		}
@@ -191,6 +191,7 @@ function get_feed_results($feeds) {
 			$client_id="84e0a91bb0ca49bc91b0b5d88eb1289c";
 			$instagram_url='https://api.instagram.com/v1/tags/'.$instagram_tags[$i].'/media/recent?client_id='.$client_id;
 			$instagram_feeds=fetch_instagram_feed($instagram_url);
+			
 			
 			if($instagram_feeds !='') {
 				if($results !='') {
@@ -210,7 +211,6 @@ function get_feed_results($feeds) {
 				<?php
 			}
 		}
-		
 		return $results;
 }
 
@@ -219,12 +219,6 @@ function show_feed_results( $results = NULL ) {
     if( !$results ) return false;
 	$total = count($results);
 	?>
-	<div class="first-element element-item item" data-category="transition">
-		<div style="overflow: hidden;width: 100%;height: 402px; background-image:url(<?php bloginfo('template_url');?>/images/feed-dummy.png); background-repeat:no-repeat; background-size: 100%; background-position: center center;">
-			<img class="element-img" src="<?php bloginfo('template_url');?>/images/feed-dummy.png" style="display:none;">
-		</div>
-	</div>
-	
 	
     <?php
 			$i=0;
