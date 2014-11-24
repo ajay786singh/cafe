@@ -7,7 +7,7 @@ function fetch_facebook_feed() {
 	  'appId'  => '683612871757445',
 	  'secret' => '96eec233924a9b8911acfe818181cbaf',
 	));
-	 
+	
 	$feeds=$facebook->api('/145253518873861/feed');
 	
 	$i = 0;
@@ -21,7 +21,6 @@ function fetch_facebook_feed() {
 			$link = $post['link'];
 			$author=$post[$i]['from']['name'];
 			$results[]=array('title'=>$title,'author'=>$author,'link'=>$link,'img'=>$img,'date'=>$date,'label'=>'facebook','filter'=>'social');
-		 
 			$i++; // add 1 to the counter
 		}
 		//  break out of the loop if counter has reached 10

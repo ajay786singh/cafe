@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title><?php wp_title( '|', true, 'right' ); ?><?php bloginfo('name') ?></title>
-    <?php 
+    <title><?php wp_title( '|', true, 'right' );?><?php bloginfo('name');?></title>
+    <?php
         $args   =array('post_type' => 'post','posts_per_page' => 1);query_posts($args);
         if (have_posts()) : while(have_posts()) : the_post();
         if (is_single()) { ?>
