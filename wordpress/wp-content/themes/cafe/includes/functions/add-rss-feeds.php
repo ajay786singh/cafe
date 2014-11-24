@@ -1,4 +1,37 @@
 <?php
+require get_template_directory().'/includes/library/facebook/facebook.php';
+
+function fetch_facebook_feed() {
+	// Create our Application instance (replace this with your appId and secret).
+	$facebook = new Facebook(array(
+	  'appId'  => '683612871757445',
+	  'secret' => '96eec233924a9b8911acfe818181cbaf',
+	));
+	 
+	$feeds=$facebook->api('/145253518873861/feed');
+	
+	$i = 0;
+	foreach($feeds['data'] as $post) {
+		if($post['type']=='photo') {
+			
+			$object_id = $post['object_id'];
+			$img ='https://graph.facebook.com/'.$object_id.'/picture?width=9999&height=9999';
+			$date = date("d-m-Y H:i:s", strtotime($post['created_time']));
+			$title = $post['message'];
+			$link = $post['link'];
+			$author=$post[$i]['from']['name'];
+			$results[]=array('title'=>$title,'author'=>$author,'link'=>$link,'img'=>$img,'date'=>$date,'label'=>'facebook','filter'=>'social');
+		 
+			$i++; // add 1 to the counter
+		}
+		//  break out of the loop if counter has reached 10
+		if ($i == 10) {
+			break;
+		}
+	}
+	return $results;
+}
+
 function fetch_instagram_feed($url) {
 	$ch = curl_init($url); 
 	 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20); 
@@ -201,7 +234,14 @@ function get_feed_results($feeds) {
 				}
 			}
 		}
-				
+		$fb_feeds=fetch_facebook_feed();
+		if($fb_feeds !='') {
+			if($results !='') {
+				$results=array_merge($fb_feeds,$results);
+			}else {
+				$results=$fb_feeds;	
+			}
+		}		
 		if($results) {
 			usort($results, "sort_by_date");
 			for( $j=0;$j<count($results);$j++) {
