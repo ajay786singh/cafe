@@ -4,8 +4,8 @@ require get_template_directory().'/includes/library/facebook/facebook.php';
 function fetch_facebook_feed() {
 	// Create our Application instance (replace this with your appId and secret).
 	$facebook = new Facebook(array(
-	  'appId'  => '683612871757445',
-	  'secret' => '96eec233924a9b8911acfe818181cbaf',
+	  'appId'  => '757154670988865',
+	  'secret' => 'e8cfdf2c203d7cae9c1ce4bcd91254f6',
 	));
 	
 	$feeds=$facebook->api('/145253518873861/feed');
