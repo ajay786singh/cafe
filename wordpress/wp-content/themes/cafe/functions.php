@@ -1,5 +1,9 @@
 <?php
-
+if( session_id() == '')
+{ 
+	// no session has been started yet, which is needed for validation
+	session_start();
+}
 //Include cuztom helper files https://github.com/Gizburdt/Wordpress-Cuztom-Helper
 include('includes/wp-cuztom-helper/cuztom.php');
 
